@@ -1,5 +1,5 @@
 import { SquarePen, Trash2 } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { deleteANote } from "../api/note";
 import { useState } from "react";
 import { useAuth } from "../store";
@@ -8,6 +8,7 @@ import { toast } from "sonner";
 export default function NoteCard({ note }) {
   const [isDeleting, setIsDeleting] = useState(false);
   const { token, user } = useAuth();
+  const navigate = useNavigate();
 
   const deleteNoteFn = async () => {
     setIsDeleting(true);
@@ -15,7 +16,7 @@ export default function NoteCard({ note }) {
       const res = await deleteANote(note._id, token);
       if (res.status === 200) {
         toast.success(res.data.msg);
-        window.location.reload();
+        navigate("/my-task");
       }
     } catch (error) {
       console.error(error);
