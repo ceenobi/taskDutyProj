@@ -34,11 +34,11 @@ export default function Login() {
         className="w-[85vw] md:w-[350px] border border-gray-200 p-4 mt-6"
         onSubmit={handleSubmit(submitForm)}
       >
-        <div className="">
-          <label htmlFor="username" className="floating-label">
+        <div>
+          <label htmlFor="username" className="floating-label relative">
             <span>Username</span>
             <input
-              className="input input-lg w-full"
+              className="input input-lg w-full -z-10"
               type="text"
               placeholder="Username"
               {...register("username", { required: true })}
@@ -52,7 +52,7 @@ export default function Login() {
           <label htmlFor="password" className="floating-label">
             <span>Password</span>
             <input
-              className="input input-lg w-full"
+              className="input input-lg w-full -z-10"
               type="password"
               placeholder="Password"
               {...register("password", { required: true })}

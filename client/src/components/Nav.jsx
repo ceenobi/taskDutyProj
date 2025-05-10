@@ -2,6 +2,7 @@ import { NavLink } from "react-router";
 import logo from "../assets/logo.svg";
 import avatar from "../assets/avatar.png";
 import { useAuth } from "../store";
+import Sidebar from "./Sidebar";
 
 export default function Nav() {
   const { user, handleLogout } = useAuth();
@@ -11,6 +12,7 @@ export default function Nav() {
         <NavLink to="/">
           <img src={logo} alt="logo" />
         </NavLink>
+        <Sidebar />
         <div className="hidden md:block">
           {user ? (
             <div className="flex gap-4 items-center">
